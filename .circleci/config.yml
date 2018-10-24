@@ -20,7 +20,6 @@ jobs:
           name: Install dependencies
           command: |
             npm install
-            npm build
 
       - save_cache:
           paths:
@@ -57,10 +56,12 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "dev" ];
             then
+              npm build
               npm run deploy-staging
               
             elif [ "${CIRCLE_BRANCH}" == "master" ];
             then
+              npm build
               npm run deploy-prod
             fi
 
