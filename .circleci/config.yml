@@ -48,7 +48,9 @@ jobs:
       - checkout
       - run:
           name: Install python
-          command: sudo curl -O https://bootstrap.pypa.io/get-pip.py && sudo python get-pip.py
+          command: |
+            sudo curl -O https://bootstrap.pypa.io/get-pip.py
+            sudo python get-pip.py
 
       - run:
           name: Install AWS cli
@@ -79,7 +81,7 @@ workflows:
             branches:
               only:
                 - dev
-                - production
+                - master
       - deploy:
           requires:
             - test
@@ -87,4 +89,4 @@ workflows:
             branches:
               only:
                 - dev
-                - production
+                - master
