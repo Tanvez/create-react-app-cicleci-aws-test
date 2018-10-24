@@ -44,9 +44,9 @@ jobs:
       - image: circleci/node:8.10
     working_directory: ~/repo
     steps:
+      - checkout
       - restore_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
-      - checkout
       - run:
           name: "Install awscli"
           command: "sudo apt-get -y -qq install awscli"
