@@ -36,7 +36,7 @@ jobs:
           name: Run tests with coverage
           command: |
             npm install
-            npm test --coverage
+            npm run test --coverage
 
   deploy:
     docker:
