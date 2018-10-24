@@ -18,8 +18,7 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: |
-            npm install
+          command: npm install && npm run build
 
       - save_cache:
           paths:
@@ -49,9 +48,7 @@ jobs:
       - checkout
       - run:
           name: Install Serverless
-          command: |
-          sudo pip install awscli
-          npm run build
+          command: sudo pip install awscli
       - run:
           name: Deploy
           # command: sls deploy --stage pre
